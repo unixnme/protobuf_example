@@ -1,16 +1,16 @@
 ## Install
 ```shell script
-git submodule update --init 
+git submodule update --init --recursive
 cd protobuf
+./autogen.sh
 ./configure
 make -j4
-make install
 cd ..
 ```
 
 ## Compile
 ```shell script
-protoc --cpp_out=. addressbook.proto
+protobuf/src/protoc --cpp_out=. addressbook.proto
 ```
 
 ## Build
