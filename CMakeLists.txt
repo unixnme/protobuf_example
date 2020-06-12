@@ -4,10 +4,11 @@ project(protobuf_example)
 set(CMAKE_CXX_STANDARD 11)
 find_package(Protobuf REQUIRED)
 include_directories(${Protobuf_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(PROTO_HDRS addressbook.pb.h)
 set(PROTO_SRCS addressbook.pb.cc)
-protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS addressbook.proto)
+protobuf_generate_cpp(${PROTO_SRCS} ${PROTO_HDRS} addressbook.proto)
 
 add_executable(write
         ${PROTO_SRCS}
